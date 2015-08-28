@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="ListViewExample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ListViewExample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ListView x:Name="listView" ItemsSource="{Binding AddressItems, Mode=TwoWay}" SelectionChanged="ListView_SelectionChanged" Margin="0,0,0,129">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Height="110" Margin="6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="16,20,0,0">
+                            <TextBlock Text="{Binding Name}" Style="{StaticResource TitleTextBlockStyle}"  TextWrapping="NoWrap"/>
+                            <TextBlock Text="{Binding City}" TextWrapping="NoWrap"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+        <Button x:Name="button" Content="Change List" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="button_Click" />
+
+    </Grid>
+</Page>
